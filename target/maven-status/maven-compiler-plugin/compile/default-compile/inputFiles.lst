@@ -1,2 +1,5 @@
+/Users/ribeiros/workspace/cursomc/src/main/java/com/laissantiago/cursomc/repositories/CategoriaRepository.java
 /Users/ribeiros/workspace/cursomc/src/main/java/com/laissantiago/cursomc/resources/CategoriaResource.java
 /Users/ribeiros/workspace/cursomc/src/main/java/com/laissantiago/cursomc/CursomcApplication.java
+/Users/ribeiros/workspace/cursomc/src/main/java/com/laissantiago/cursomc/domain/Categoria.java
+/Users/ribeiros/workspace/cursomc/src/main/java/com/laissantiago/cursomc/services/CategoriaService.java
