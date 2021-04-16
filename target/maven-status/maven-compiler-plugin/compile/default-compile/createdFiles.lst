@@ -1,5 +1,7 @@
+com/laissantiago/cursomc/repositories/ProdutoRepository.class
+com/laissantiago/cursomc/CursomcApplication.class
 com/laissantiago/cursomc/resources/CategoriaResource.class
 com/laissantiago/cursomc/repositories/CategoriaRepository.class
+com/laissantiago/cursomc/domain/Produto.class
 com/laissantiago/cursomc/services/CategoriaService.class
-com/laissantiago/cursomc/CursomcApplication.class
 com/laissantiago/cursomc/domain/Categoria.class

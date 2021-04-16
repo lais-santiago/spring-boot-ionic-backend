@@ -1,10 +1,9 @@
 package com.laissantiago.cursomc.repositories;
 
-import com.laissantiago.cursomc.domain.Categoria;
+import com.laissantiago.cursomc.domain.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CategoriaRepository extends JpaRepository <Categoria, Integer> {
-
+public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
 }
