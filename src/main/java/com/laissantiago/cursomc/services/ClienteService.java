@@ -1,7 +1,6 @@
 package com.laissantiago.cursomc.services;
 
 import com.laissantiago.cursomc.domain.Cliente;
-import com.laissantiago.cursomc.repositories.CategoriaRepository;
 import com.laissantiago.cursomc.repositories.ClienteRepository;
 import com.laissantiago.cursomc.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

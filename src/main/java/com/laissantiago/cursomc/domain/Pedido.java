@@ -1,7 +1,8 @@
 package com.laissantiago.cursomc.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,6 +11,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Getter
+@Setter
 @Entity
 public class Pedido implements Serializable {
     private static final long serialVersionUID = -6811504284924517442L;
@@ -21,11 +24,9 @@ public class Pedido implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy hh:mm")
     private Date instante;
 
-    @JsonManagedReference
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "pedido")
     private Pagamento pagamento;
 
-    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
@@ -47,59 +48,11 @@ public class Pedido implements Serializable {
         this.enderecoDeEntrega = enderecoDeEntrega;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getInstante() {
-        return instante;
-    }
-
-    public void setInstante(Date instante) {
-        this.instante = instante;
-    }
-
-    public Pagamento getPagamento() {
-        return pagamento;
-    }
-
-    public void setPagamento(Pagamento pagamento) {
-        this.pagamento = pagamento;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Endereco getEnderecoDeEntrega() {
-        return enderecoDeEntrega;
-    }
-
-    public void setEnderecoDeEntrega(Endereco enderecoDeEntrega) {
-        this.enderecoDeEntrega = enderecoDeEntrega;
-    }
-
-    public Set<ItemPedido> getItens() {
-        return itens;
-    }
-
-    public void setItens(Set<ItemPedido> itens) {
-        this.itens = itens;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Pedido pedido = (Pedido) o;
+        var pedido = (Pedido) o;
         return id.equals(pedido.id);
     }
 

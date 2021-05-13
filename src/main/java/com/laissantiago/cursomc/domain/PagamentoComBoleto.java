@@ -1,11 +1,16 @@
 package com.laissantiago.cursomc.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.laissantiago.cursomc.domain.Enums.EstadoPagamento;
+import com.laissantiago.cursomc.domain.enums.EstadoPagamento;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import java.util.Date;
+import java.util.Objects;
 
+@Getter
+@Setter
 @Entity
 public class PagamentoComBoleto extends Pagamento{
     private static final long serialVersionUID = -1229825084843203053L;
@@ -25,19 +30,17 @@ public class PagamentoComBoleto extends Pagamento{
         this.dataPagamento = dataPagamento;
     }
 
-    public Date getDataVencimento() {
-        return dataVencimento;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        PagamentoComBoleto that = (PagamentoComBoleto) o;
+        return dataVencimento.equals(that.dataVencimento) && dataPagamento.equals(that.dataPagamento);
     }
 
-    public void setDataVencimento(Date dataVencimento) {
-        this.dataVencimento = dataVencimento;
-    }
-
-    public Date getDataPagamento() {
-        return dataPagamento;
-    }
-
-    public void setDataPagamento(Date dataPagamento) {
-        this.dataPagamento = dataPagamento;
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), dataVencimento, dataPagamento);
     }
 }

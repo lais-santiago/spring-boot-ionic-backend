@@ -1,11 +1,14 @@
 package com.laissantiago.cursomc.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Getter
+@Setter
 @Entity
 public class Cidade implements Serializable {
     private static final long serialVersionUID = 2346755893923322916L;
@@ -15,7 +18,6 @@ public class Cidade implements Serializable {
     private Integer id;
     private String nome;
 
-    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "ESTADO_ID")
     private Estado estado;
@@ -29,35 +31,11 @@ public class Cidade implements Serializable {
         this.estado = estado;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Cidade cidade = (Cidade) o;
+        var cidade = (Cidade) o;
         return id.equals(cidade.id);
     }
 

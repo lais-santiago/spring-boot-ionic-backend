@@ -1,6 +1,7 @@
 package com.laissantiago.cursomc.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
@@ -8,6 +9,8 @@ import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Getter
+@Setter
 @Embeddable
 public class ItemPedidoPK implements Serializable {
 
@@ -20,22 +23,6 @@ public class ItemPedidoPK implements Serializable {
   @ManyToOne
   @JoinColumn(name = "produto_id")
   private Produto produto;
-
-  public Pedido getPedido() {
-    return pedido;
-  }
-
-  public void setPedido(Pedido pedido) {
-    this.pedido = pedido;
-  }
-
-  public Produto getProduto() {
-    return produto;
-  }
-
-  public void setProduto(Produto produto) {
-    this.produto = produto;
-  }
 
   @Override
   public boolean equals(Object o) {

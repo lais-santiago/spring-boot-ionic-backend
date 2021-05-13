@@ -1,6 +1,7 @@
 package com.laissantiago.cursomc.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Getter
+@Setter
 @Entity
 public class Categoria implements Serializable {
 
@@ -18,7 +21,6 @@ public class Categoria implements Serializable {
     private Integer id;
     private String nome;
 
-    @JsonManagedReference
     @ManyToMany(mappedBy = "categorias")
     private List<Produto> produtos = new ArrayList<>();
 
@@ -29,35 +31,11 @@ public class Categoria implements Serializable {
         this.nome = nome;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Categoria categoria = (Categoria) o;
+        var categoria = (Categoria) o;
         return id.equals(categoria.id);
     }
 
