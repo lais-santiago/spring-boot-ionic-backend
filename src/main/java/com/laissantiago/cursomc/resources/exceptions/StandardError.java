@@ -1,7 +1,12 @@
 package com.laissantiago.cursomc.resources.exceptions;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 
+@Getter
+@Setter
 public class StandardError implements Serializable {
   
   private static final long serialVersionUID = 625292258261698147L;
@@ -15,28 +20,5 @@ public class StandardError implements Serializable {
     this.msg = msg;
     this.timeStamp = timeStamp;
   }
-  
-  public Integer getStatus() {
-    return status;
-  }
-  
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-  
-  public String getMsg() {
-    return msg;
-  }
-  
-  public void setMsg(String msg) {
-    this.msg = msg;
-  }
-  
-  public Long getTimeStamp() {
-    return timeStamp;
-  }
-  
-  public void setTimeStamp(Long timeStamp) {
-    this.timeStamp = timeStamp;
-  }
+
 }
