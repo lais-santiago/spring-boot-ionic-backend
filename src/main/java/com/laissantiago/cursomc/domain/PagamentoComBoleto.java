@@ -12,6 +12,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
+@EqualsAndHashCode
 public class PagamentoComBoleto extends Pagamento{
   private static final long serialVersionUID = -1229825084843203053L;
   
