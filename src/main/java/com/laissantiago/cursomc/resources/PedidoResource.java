@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/pedidos")
 public class PedidoResource {
-
-    @Autowired
-    private PedidoService service;
-
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Pedido> find(@PathVariable Integer id){
-
-        Pedido obj = service.buscar(id);
-        return ResponseEntity.ok().body(obj);
-
-    }
+  
+  @Autowired
+  private PedidoService service;
+  
+  @GetMapping(value = "/{id}")
+  public ResponseEntity<Pedido> find(@PathVariable Integer id){
+    
+    Pedido obj = service.buscar(id);
+    return ResponseEntity.ok().body(obj);
+    
+  }
 }

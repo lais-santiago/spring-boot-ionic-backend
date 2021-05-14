@@ -1,17 +1,18 @@
 package com.laissantiago.cursomc.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Getter
 @Setter
 @Entity
+@EqualsAndHashCode
 public class ItemPedido implements Serializable {
   private static final long serialVersionUID = 8906305748891014517L;
 
@@ -38,17 +39,5 @@ public class ItemPedido implements Serializable {
   public Pedido getPedido(){
     return id.getPedido();
   }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ItemPedido that = (ItemPedido) o;
-    return id.equals(that.id);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id);
-  }
+  
 }

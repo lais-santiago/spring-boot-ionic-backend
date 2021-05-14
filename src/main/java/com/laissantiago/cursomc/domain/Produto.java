@@ -1,6 +1,7 @@
 package com.laissantiago.cursomc.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.*;
 @Getter
 @Setter
 @Entity
+@EqualsAndHashCode
 public class Produto implements Serializable {
 
   private static final long serialVersionUID = -8335883823682131930L;
@@ -52,17 +54,5 @@ public class Produto implements Serializable {
 
     return lista;
   }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    var produto = (Produto) o;
-    return id.equals(produto.id);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id);
-  }
+  
 }
